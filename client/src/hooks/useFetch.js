@@ -8,7 +8,7 @@ export default function useFetch(fetcher, fallback = []) {
   useEffect(() => {
     let alive = true;
     fetcher()
-      .then((d) => alive && d?.length && setData(d))
+      .then((d) => alive && Array.isArray(d) && d.length && setData(d))
       .catch(() => {})
       .finally(() => alive && setLoading(false));
     return () => { alive = false; };
