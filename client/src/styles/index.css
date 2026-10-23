@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  /* Dorio palette */
+  --color-lime: #e1ee63;
+  --color-lime-dark: #cddb3f;
+  --color-electric: #0a1fe0;
+  --color-royal: #0b2aa8;
+  --color-navy: #040a3c;
+  --color-night: #000000;
+  --color-ink: #1a1a1a;
+  --color-mist: #efefef;
+  --color-stone: #8f8f8f;
+
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --radius-card: 2rem;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-ink font-body antialiased; }
+  h1, h2, h3 { @apply font-display uppercase leading-[0.9] tracking-tight; }
+  :focus-visible { outline: 2px solid var(--color-electric); outline-offset: 3px; }
+}
+
+@layer utilities {
+  .bg-spotlight {
+    background: radial-gradient(120% 80% at 90% 20%, #1530ff 0%, #0b2aa8 35%, #000 75%);
+  }
+  .bg-spotlight-soft {
+    background: radial-gradient(90% 70% at 0% 0%, #4d7bff 0%, #0a1fe0 30%, #000 70%);
+  }
+  .footer-glow {
+    background: linear-gradient(180deg, #02061f 0%, #0a1fe0 140%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
